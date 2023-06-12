@@ -20,7 +20,11 @@ jobs:
     - name: Install Chrome
       uses: browser-actions/setup-chrome@v1
       with:
-        chrome-version: stable        
+        chrome-version: stable   
+    - name: Print Chrome Version
+      run: |
+        CHROME_VERSION=$(google-chrome-stable --version)
+        echo "Installed Chrome Version: $CHROME_VERSION"        
     - name: Install dependencies
       run: dotnet restore
     - name: Build
